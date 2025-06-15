@@ -1,0 +1,220 @@
+/* Footer */
+footer {
+    background-color: #1f2937;
+    color: #cbd5e1;
+    padding: 40px 16px 32px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+  }
+  .footer-section {
+    min-width: 200px;
+    flex: 1 1 180px;
+  }
+  .footer-logo {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #14b8a6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .footer-logo .material-icons {
+    font-size: 32px;
+  }
+  .footer-links a {
+    display: block;
+    margin-bottom: 12px;
+    color: #94a3b8;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover,
+  .footer-links a:focus {
+    color: #14b8a6;
+    outline: none;
+  }
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 36px auto 0;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .footer-social a {
+    color: #94a3b8;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  .footer-social a:hover,
+  .footer-social a:focus {
+    color: #14b8a6;
+    outline: none;
+  }
+  
+  /* Scrollbar for popular activities grid horizontally on mobile */
+  @media (max-width: 639px) {
+    .activities-grid {
+      display: flex;
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+    .activities-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+    .activities-grid::-webkit-scrollbar-thumb {
+      background-color: #008080;
+      border-radius: 20px;
+    }
+    .activities-grid::-webkit-scrollbar-track {
+      background-color: #e0f2f1;
+    }
+  }
+  
+  /* Responsive Layout & Navigation */
+  
+  /* Mobile Navigation */
+  nav.mobile-nav {
+    display: none;
+    background-color: white;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding-top: 72px;
+    flex-direction: column;
+    gap: 26px;
+    overflow-y: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  nav.mobile-nav a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #334155;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+    transition: color 0.3s ease;
+  }
+  nav.mobile-nav a:hover,
+  nav.mobile-nav a:focus {
+    color: #008080;
+    outline: none;
+  }
+  nav.mobile-nav.show {
+    display: flex;
+  }
+  
+  /* Hide desktop nav on mobile */
+  @media (max-width: 767px) {
+    nav.desktop-nav {
+      display: none;
+    }
+    .mobile-menu-button {
+      display: block;
+    }
+    .hero {
+      height: 300px;
+      border-radius: 0 0 24px 24px;
+    }
+    .hero-title {
+      font-size: 1.8rem;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .search-bar {
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 16px;
+    }
+    .search-bar input[type="text"],
+    .search-bar select {
+      width: 100%;
+      border-radius: 16px;
+      font-size: 0.95rem;
+    }
+    .search-bar button {
+      width: 100%;
+      border-radius: 16px;
+      padding: 12px 0;
+    }
+    .features {
+      gap: 32px 12px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    .top-destinations {
+      grid-template-columns: 1fr;
+      padding: 0 8px 48px;
+    }
+    .destination-card {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .trip-ideas {
+      grid-template-columns: 1fr;
+      padding: 0 8px;
+    }
+    .popular-activities {
+      padding: 0 8px;
+    }
+  }
+  
+  /* Desktop layout adjustments */
+  @media (min-width: 768px) {
+    nav.mobile-nav {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero {
+      height: 420px;
+    }
+    .features {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .top-destinations {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .trip-ideas {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Large Desktop */
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+    }
+    .hero-content {
+      max-width: 960px;
+    }
+    .features {
+      gap: 64px 36px;
+    }
+    .top-destinations {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+    }
+    .trip-ideas {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .popular-activities {
+      max-width: 1440px;
+    }
+  }
+  

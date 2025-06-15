@@ -1,0 +1,128 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 999;
+  background: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+}
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header */
+header {
+  background: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 10px; */
+}
+
+.logo-img {
+  width: 150px;
+  height: 150px;
+}
+
+nav.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav.desktop-nav a {
+  color: #334155;
+  padding: 8px 0;
+  position: relative;
+}
+
+nav.desktop-nav a:hover,
+nav.desktop-nav a:focus {
+  color: #008080;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-outline {
+  padding: 6px 16px;
+  border: 2px solid #008080;
+  color: #008080;
+  font-size: 0.9rem;
+  border-radius: 24px;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: #008080;
+  color: white;
+  outline: none;
+}
+.btn-primary {
+  padding: 8px 20px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #006666;
+  outline: none;
+}
+
+/* Responsive mobile hamburger */
+.mobile-menu-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #008080;
+  display: none;
+}
