@@ -39,8 +39,6 @@ const LoginModal = ({ show, onClose }) => {
       try {
         const response = await loginUser(values.email, values.password);
 
-        console.log(response);
-
         // Make sure we receive the correct tokens
         const access_token = response.access_token;
         const refresh_token = response.refresh_token;

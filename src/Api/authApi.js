@@ -29,3 +29,13 @@ export const loginUser = async (email, password) => {
     );
   }
 };
+
+export const signOut = async () => {
+  try {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    window.location.href = "/";
+  } catch (error) {
+    console.error("Error logging out:", error);
+  }
+};

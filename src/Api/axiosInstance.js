@@ -31,7 +31,6 @@ axiosInstance.interceptors.response.use(
       console.warn("🔐 Unauthorized - Access token có thể đã hết hạn hoặc sai.");
       // redirect đến trang login hoặc clear localStorage
       localStorage.removeItem("accessToken");
-      window.location.href = "/login";
     }
 
     return Promise.reject(error);
