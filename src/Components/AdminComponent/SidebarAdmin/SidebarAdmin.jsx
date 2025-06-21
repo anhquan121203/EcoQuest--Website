@@ -36,8 +36,9 @@ function SidebarAdmin() {
 
               {/* Quản lý người dùng */}
               <div
-                className={`nav-item dropdown-service ${accountDropdownOpen ? "open" : ""
-                  }`}
+                className={`nav-item dropdown-service ${
+                  accountDropdownOpen ? "open" : ""
+                }`}
                 onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
               >
                 <div className="dropdown-left">
@@ -45,8 +46,9 @@ function SidebarAdmin() {
                   <span>Quản lý tài khoản</span>
                 </div>
                 <IoIosArrowDown
-                  className={`dropdown-icon ${accountDropdownOpen ? "rotate" : ""
-                    }`}
+                  className={`dropdown-icon ${
+                    accountDropdownOpen ? "rotate" : ""
+                  }`}
                 />
               </div>
 
@@ -66,8 +68,9 @@ function SidebarAdmin() {
 
               {/*Quản lý thiết bị */}
               <div
-                className={`nav-item dropdown-service ${serviceDropdownOpen ? "open" : ""
-                  }`}
+                className={`nav-item dropdown-service ${
+                  serviceDropdownOpen ? "open" : ""
+                }`}
                 onClick={() => setServiceDropdownOpen(!serviceDropdownOpen)}
               >
                 <div className="dropdown-left">
@@ -75,8 +78,9 @@ function SidebarAdmin() {
                   <span>Quản lý dịch vụ</span>
                 </div>
                 <IoIosArrowDown
-                  className={`dropdown-icon ${serviceDropdownOpen ? "rotate" : ""
-                    }`}
+                  className={`dropdown-icon ${
+                    serviceDropdownOpen ? "rotate" : ""
+                  }`}
                 />
               </div>
 
@@ -100,8 +104,8 @@ function SidebarAdmin() {
               </Link>
 
               {/* Quản lý phòng ban */}
-              <Link to="/admin/department-admin" className="nav-item">
-                <HiOutlineOfficeBuilding /> Quản lý phòng ban
+              <Link to="/admin/dashboard-partner" className="nav-item">
+                <HiOutlineOfficeBuilding /> Quản lý đối tác
               </Link>
 
               {/*  */}
@@ -111,17 +115,19 @@ function SidebarAdmin() {
 
               {/*Quản lý thiết bị */}
               <div
-                className={`nav-item dropdown-service ${blogDropdownOpen ? "open" : ""
-                  }`}
+                className={`nav-item dropdown-service ${
+                  blogDropdownOpen ? "open" : ""
+                }`}
                 onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
               >
                 <div className="dropdown-left">
-                  <IoDocumentAttachOutline   />
+                  <IoDocumentAttachOutline />
                   <span>Quản lý blogger</span>
                 </div>
                 <IoIosArrowDown
-                  className={`dropdown-icon ${blogDropdownOpen ? "rotate" : ""
-                    }`}
+                  className={`dropdown-icon ${
+                    blogDropdownOpen ? "rotate" : ""
+                  }`}
                 />
               </div>
 
@@ -130,10 +136,7 @@ function SidebarAdmin() {
                   <Link to="#" className="submenu-item">
                     Danh sách blogger
                   </Link>
-                  <Link
-                    to="#"
-                    className="submenu-item"
-                  >
+                  <Link to="#" className="submenu-item">
                     Các loại blogger
                   </Link>
                 </div>

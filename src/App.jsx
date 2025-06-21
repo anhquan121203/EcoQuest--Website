@@ -10,6 +10,7 @@ import HomePage from "./Pages/UserPages/HomePage/HomePage";
 // ADMIN PAGE
 import AdminLayout from "./Layouts/AdminLayout";
 import DashboardAdmin from "./Pages/AdminPages/DashboardAdmin/DashboardAdmin";
+import PartnerAdmin from "./Pages/AdminPages/PartnerAdmin/PartnerAdmin";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<DashboardAdmin />} />
           <Route path="dashboard-admin" element={<DashboardAdmin />} />
+           <Route path="dashboard-partner" element={<PartnerAdmin />} />
         </Route>
 
       </Routes>

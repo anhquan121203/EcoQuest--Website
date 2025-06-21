@@ -1,0 +1,98 @@
+.partner-admin {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  background: #f7fafd;
+  min-height: 100vh;
+}
+
+.partner-admin h1 {
+  text-align: center;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.partner-admin button {
+  background-color: #21a1f1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+
+.partner-admin button:hover {
+  background-color: #0067a7;
+}
+
+.partner-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.partner-table th,
+.partner-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+  font-size: 15px;
+}
+
+.partner-table th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+}
+
+.partner-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.partner-table td:last-child {
+  text-align: center;
+}
+
+.partner-table button {
+  background-color: #0ca678;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background 0.2s;
+}
+
+.partner-table button:hover {
+  background-color: #218838;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-badge.active,
+.partner-table td:has(.status-badge.active) {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.inactive,
+.partner-table td:has(.status-badge.inactive) {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
