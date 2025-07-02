@@ -1,27 +1,29 @@
 import React from "react";
-import  "./Footer.css"
-import logo from "../../../assets/images/logo-eco.png"
+import "./Footer.css";
+import logo from "../../../assets/images/logo-eco.png";
 
 function Footer() {
   return (
     <footer role="contentinfo">
       <div className="footer-container">
         <div className="footer-section">
-          <a href="#" className="footer-logo" aria-label="Travel logo">
-            <img src={logo} alt="logo" className="material-icons"/>
-            
+          <a href="#" className="footer-logo" aria-label="EcoQuest logo">
+            <img src={logo} alt="logo" className="material-icons" />
           </a>
-          <p>Don't just travel, go travel in style.</p>
+          <p>
+            Không chỉ du lịch, hãy trải nghiệm du lịch theo phong cách riêng của
+            bạn.
+          </p>
           <address style={{ fontStyle: "normal", marginTop: 12 }}>
-            123 Travel Street, New York, NY
+            123 Đường Du Lịch, Hà Nội, Việt Nam
             <br />
-            +1 234 567 890
+            +84 234 567 890
             <br />
-            support@travel.com
+            support@ecoquest.com
           </address>
         </div>
         <div className="footer-section">
-          <h4>Top Destinations</h4>
+          <h4>Điểm đến nổi bật</h4>
           <div className="footer-links">
             <a href="#">Bali</a>
             <a href="#">Bangkok</a>
@@ -32,20 +34,26 @@ function Footer() {
           </div>
         </div>
         <div className="footer-section">
-          <h4>Information</h4>
+          <h4>Thông tin</h4>
           <div className="footer-links">
-            <a href="#">About</a>
-            <a href="#">Careers</a>
-            <a href="#">FAQs</a>
-            <a href="#">Contact</a>
-            <a href="#">Support</a>
+            <a href="#">Về chúng tôi</a>
+            <a href="#">Tuyển dụng</a>
+            <a href="#">Câu hỏi thường gặp</a>
+            <a href="#">Liên hệ</a>
+            <a href="#">Hỗ trợ</a>
             <a href="#">Blog</a>
           </div>
         </div>
         <div className="footer-section">
-          <h4>Follow Us</h4>
+          <h4>Kết nối với chúng tôi</h4>
           <div className="footer-social" role="list">
-            <a href="#" aria-label="Facebook" role="listitem">
+            <a
+              href="https://www.facebook.com/ecoquest.trip/"
+              aria-label="Facebook"
+              role="listitem"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="material-icons">facebook</span>
             </a>
             <a href="#" aria-label="Twitter" role="listitem">
@@ -60,7 +68,9 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer-bottom">© 2024 Travel. All rights reserved.</div>
+      <div className="footer-bottom">
+        © 2024 EcoQuest. Đã đăng ký bản quyền.
+      </div>
     </footer>
   );
 }

@@ -36,19 +36,19 @@ function Header() {
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#" tabIndex={0}>
-            Home
+            Trang chủ
           </a>
           <a href="#" tabIndex={0}>
-            Tours
+            Tour
           </a>
           <a href="#" tabIndex={0}>
-            Destination
+            Điểm đến
           </a>
           <a href="#" tabIndex={0}>
-            Deals
+            Ưu đãi
           </a>
           <a href="#" tabIndex={0}>
-            Contact
+            Liên hệ
           </a>
         </nav>
 
@@ -57,9 +57,9 @@ function Header() {
           <button
             className="btn-outline"
             type="button"
-            aria-label="Change language"
+            aria-label="Đổi ngôn ngữ"
           >
-            Sign In
+            Đăng ký
           </button>
 
           {isLoggedIn ? (
@@ -72,19 +72,26 @@ function Header() {
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG5B_Pc5VMtw8ze74lJ0QYcdSif6a3qMQ-kg&s"
                   alt="Profile"
                 />
-                <span>{firstName} {lastName}</span>
+                <span>
+                  {firstName} {lastName}
+                </span>
                 <IoMdArrowDropdown />
               </div>
 
               {dropdownOpen && (
                 <div className="user-dropdown">
                   <div className="user-dropdown__header">
-                    <strong>{firstName} {lastName}</strong>
+                    <strong>
+                      {firstName} {lastName}
+                    </strong>
                     <p>{email}</p>
                   </div>
                   <ul className="user-dropdown__menu">
                     <li>
-                      <Link to="/admin/dashboard-admin" className="profile-link">
+                      <Link
+                        to="/admin/dashboard-admin"
+                        className="profile-link"
+                      >
                         <span>
                           <FcManager style={{ marginRight: 10 }} />
                         </span>{" "}
@@ -97,12 +104,12 @@ function Header() {
                       </span>{" "}
                       Cài đặt
                     </li>
-                   <Divider style={{margin: "0px"}}/>
+                    <Divider style={{ margin: "0px" }} />
                     <li onClick={handleLogout}>
                       <span>
                         <CiLogout />
                       </span>{" "}
-                      Sign out
+                      Đăng xuất
                     </li>
                   </ul>
                 </div>
@@ -114,7 +121,7 @@ function Header() {
                 className="btn-primary"
                 onClick={() => setShowModal(true)}
               >
-                Sign up
+                Đăng nhập
               </button>
               <LoginModal
                 show={showModal}
