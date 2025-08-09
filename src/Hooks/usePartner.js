@@ -15,15 +15,6 @@ const usePartner = () => {
   const loading = useSelector((state) => state.partner.loading);
   const error = useSelector((state) => state.partner.error);
 
-  const createNewPartner = async (partnerData) => {
-    try {
-      await dispatch(createPartner(partnerData)).unwrap();
-      toast.success("Partner created successfully");
-    } catch (err) {
-      toast.error(err.message || "Failed to create partner");
-    }
-  };
-
   const fetchAllPartners = useCallback(() => {
     return dispatch(selectAllPartners());
   }, [dispatch]);
@@ -32,10 +23,23 @@ const usePartner = () => {
     return dispatch(selectPartnerById(id));
   };
 
+  const createNewPartner = async (partnerData) => {
+    try {
+      await dispatch(createPartner(partnerData)).unwrap();
+      toast.success("Partner created successfully");
+      // Reload danh sách ngay sau khi tạo
+      await fetchAllPartners();
+    } catch (err) {
+      toast.error(err.message || "Failed to create partner");
+    }
+  };
+
   const modifyPartner = async (partnerData) => {
     try {
       await dispatch(updatePartner(partnerData)).unwrap();
       toast.success("Partner updated successfully");
+      // Reload danh sách ngay sau khi cập nhật
+      await fetchAllPartners();
     } catch (err) {
       toast.error(err.message || "Failed to update partner");
     }
@@ -52,4 +56,5 @@ const usePartner = () => {
     modifyPartner,
   };
 };
+
 export default usePartner;

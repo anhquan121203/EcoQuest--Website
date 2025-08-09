@@ -24,13 +24,17 @@ function PartnerAdmin() {
   }, [fetchAllPartners]);
 
   // Handle adding a new partner
-  const handleAddPartner = (data) => {
-    createNewPartner(data);
+  const handleAddPartner = async (data) => {
+    await createNewPartner(data);
+    setShowAddModal(false);
+    setSelectedPartner(null); // reset sau khi thêm
   };
 
   // Handle editing an existing partner
-  const handleEditPartner = (data) => {
-    modifyPartner(data);
+  const handleEditPartner = async (data) => {
+    await modifyPartner(data);
+    setShowEditModal(false);
+    setSelectedPartner(null); // reset sau khi sửa
   };
 
   // Open the edit modal for a specific partner
@@ -44,8 +48,8 @@ function PartnerAdmin() {
 
   return (
     <div className="partner-admin">
-      <h1>Partner Management</h1>
-      <button onClick={() => setShowAddModal(true)}>Add Partner</button>
+      <h1>Quản lý đối tác</h1>
+      <button onClick={() => setShowAddModal(true)}>Thêm Đối tác</button>
       <table className="partner-table">
         <thead>
           <tr>
@@ -63,25 +67,33 @@ function PartnerAdmin() {
             <tr key={partner?.partnerId}>
               <td>{partner?.companyName}</td>
               <td>{partner?.contactName}</td>
-              <td>{partner.phone}</td>
+              <td>{partner?.phone}</td>
               <td>{partner?.description}</td>
               <td>{partner?.verified ? "Yes" : "No"}</td>
               <td>{partner?.createdAt}</td>
               <td>
-                <button onClick={() => openEditModal(partner)}>Edit</button>
+                <button onClick={() => openEditModal(partner)}>Cập nhập</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
       <AddPartnerModal
         open={showAddModal}
-        onClose={() => setShowAddModal(false)}
+        onClose={() => {
+          setShowAddModal(false);
+          setSelectedPartner(null); // reset khi đóng modal Add
+        }}
         onAdd={handleAddPartner}
       />
+
       <EditPartnerModal
         open={showEditModal}
-        onClose={() => setShowEditModal(false)}
+        onClose={() => {
+          setShowEditModal(false);
+          setSelectedPartner(null); // reset khi đóng modal Edit
+        }}
         onEdit={handleEditPartner}
         partner={selectedPartner}
       />

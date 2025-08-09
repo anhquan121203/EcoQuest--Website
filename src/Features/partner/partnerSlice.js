@@ -80,7 +80,7 @@ export const updatePartner = createAsyncThunk(
       const token = localStorage.getItem("accessToken");
       const response = await axios.put(
         `${API_BASE_URL}/api/v1/admin/Ecq310UpdatePartner`,
-        partnerData, 
+        partnerData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -140,13 +140,20 @@ const partnerSlice = createSlice({
       })
       .addCase(updatePartner.fulfilled, (state, action) => {
         state.loading = false;
+
+        if (!action.payload || !action.payload.partnerId) {
+          return; // Không có dữ liệu hợp lệ thì không update state
+        }
+
         const index = state.partners.findIndex(
-          (partner) => partner.id === action.payload.id
+          (partner) => partner.partnerId === action.payload.partnerId
         );
+
         if (index !== -1) {
           state.partners[index] = action.payload;
         }
       })
+
       .addCase(updatePartner.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
