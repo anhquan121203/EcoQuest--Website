@@ -8,6 +8,6 @@ export const store = configureStore({
     // Add your reducers here
     auth: authSlice.reducer,
     partner: partnerSlice.reducer,
-    dashboard: adminDashboardSlice.reducer,
+    adminDashboard: adminDashboardSlice.reducer,
   },
 });

@@ -99,9 +99,9 @@ function SidebarAdmin() {
               )}
 
               {/* Quản lý slot */}
-              <Link to="/admin/slot-admin" className="nav-item">
+              {/* <Link to="/admin/slot-admin" className="nav-item">
                 <CiCalendar /> Lịch làm việc
-              </Link>
+              </Link> */}
 
               {/* Quản lý phòng ban */}
               <Link to="/admin/dashboard-partner" className="nav-item">
@@ -109,12 +109,12 @@ function SidebarAdmin() {
               </Link>
 
               {/*  */}
-              <Link to="/admin/kit-admin" className="nav-item">
+              {/* <Link to="/admin/kit-admin" className="nav-item">
                 <IoIosMedkit /> Quản lý dụng cụ Y tế
-              </Link>
+              </Link> */}
 
               {/*Quản lý thiết bị */}
-              <div
+              {/* <div
                 className={`nav-item dropdown-service ${
                   blogDropdownOpen ? "open" : ""
                 }`}
@@ -129,7 +129,7 @@ function SidebarAdmin() {
                     blogDropdownOpen ? "rotate" : ""
                   }`}
                 />
-              </div>
+              </div> */}
 
               {blogDropdownOpen && (
                 <div className="submenu">

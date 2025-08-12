@@ -6,12 +6,19 @@ import { IoIosNotificationsOutline, IoMdArrowDropdown } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FcManager } from "react-icons/fc";
+import { logout } from "../../../Features/auth/authSlice";
+import { signOut } from "../../../Api/authApi";
 
 function TopbarAdmin() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleLogout = async () => {
+    await signOut();
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <div className="topbar-container">
@@ -40,25 +47,21 @@ function TopbarAdmin() {
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG5B_Pc5VMtw8ze74lJ0QYcdSif6a3qMQ-kg&s"
               alt="Profile"
             />
-            <span>
-              Nguyen Van A
-            </span>
+            <span>Nguyen Van A</span>
             <IoMdArrowDropdown />
           </div>
 
           {dropdownOpen && (
             <div className="topbar-dropdown">
               <div className="topbar-dropdown__header">
-                <strong>
-                  Nguyen Van A
-                </strong>
+                <strong>Nguyen Van A</strong>
                 <p>nguyenvana@gmail.com</p>
               </div>
               <ul className="topbar-dropdown__menu">
                 <li>
                   <Link to="/admin/profile" className="profile-link">
                     <span>
-                      <FcManager style={{marginRight: 10}}/>
+                      <FcManager style={{ marginRight: 10 }} />
                     </span>{" "}
                     Hồ sơ
                   </Link>
@@ -70,7 +73,7 @@ function TopbarAdmin() {
                   Cài đặt
                 </li>
                 <hr />
-                <li >
+                <li onClick={handleLogout}>
                   <span>
                     <CiLogout />
                   </span>{" "}
