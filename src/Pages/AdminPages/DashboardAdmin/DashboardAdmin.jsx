@@ -43,9 +43,9 @@ function DashboardAdmin() {
 
   return (
     <div className="dashboard-admin">
-      <header className="dashboard-header">
+      <div className="dashboard-header">
         <h1>📊 Bảng Điều Khiển Quản Trị</h1>
-      </header>
+      </div>
 
       {loading && (
         <div className="loading-overlay">
