@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import logo from "../../assets/images/logo-eco.png";
+import logo from "../../Assets/images/logo-eco.png";
 import { Divider } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
