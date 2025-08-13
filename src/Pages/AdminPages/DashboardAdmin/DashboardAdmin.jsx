@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import useAdminDashboard from "../../../hooks/useAdminDashboard";
 import "./DashboardAdmin.css";
+import { format } from "date-fns";
 
 function DashboardAdmin() {
   const {
@@ -34,7 +35,7 @@ function DashboardAdmin() {
     getTripPopularityAnalysis();
     getOptimizationSuggestions();
     getComplete();
-    getTripAnalysisById("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+    getTripAnalysisById("62E1A19F-83DA-4803-92B3-A387BEF14BF0");
     getCustomPeriod({
       startDate: "2025-08-12T00:00:00",
       endDate: "2025-08-15T00:00:00",
@@ -270,9 +271,18 @@ function DashboardAdmin() {
                                 <ul className="historical-list">
                                   {item.historicalData.map((hist, hIdx) => (
                                     <li key={hIdx}>
-                                      {hist.month}: Đặt chỗ -{" "}
-                                      {hist.bookingCount}, Doanh thu -{" "}
-                                      {hist.revenue}
+                                      {hist.month
+                                        ? format(
+                                            new Date(hist.month),
+                                            "dd/MM/yyyy"
+                                          )
+                                        : "N/A"}
+                                      : Đặt chỗ - {hist.bookingCount}, Doanh thu
+                                      -{" "}
+                                      {new Intl.NumberFormat("vi-VN", {
+                                        style: "currency",
+                                        currency: "VND",
+                                      }).format(hist.revenue)}
                                     </li>
                                   ))}
                                 </ul>
@@ -330,13 +340,106 @@ function DashboardAdmin() {
           )}
         </section>
 
-        {/* 8. Trip Analysis By ID */}
         <section className="card analysis-card">
-          <h2>8. Phân Tích Chuyến Đi Theo ID</h2>
+          <h2>8. Phân Tích Chuyến Đi Nổi Bật</h2>
           {tripAnalysisById ? (
-            <pre className="json-pretty">
-              {JSON.stringify(tripAnalysisById, null, 2)}
-            </pre>
+            <div className="trip-analysis">
+              {/* Thông tin chuyến đi */}
+              <div className="subsection">
+                <h3> Thông tin chuyến đi</h3>
+                <p>
+                  <strong>Tên chuyến:</strong>{" "}
+                  {tripAnalysisById.tripInfo?.tripName}
+                </p>
+                <p>
+                  <strong>Điểm đến:</strong>{" "}
+                  {tripAnalysisById.tripInfo?.destinations?.join(", ")}
+                </p>
+                <p>
+                  <strong>Tổng chi phí ước tính:</strong>{" "}
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(tripAnalysisById.tripInfo?.totalEstimatedCost || 0)}
+                </p>
+              </div>
+
+              {/* Tóm tắt */}
+              <div className="subsection">
+                <h3>📊 Tóm tắt</h3>
+                <ul>
+                  <li>
+                    <strong>Tổng lượt đặt:</strong>{" "}
+                    {tripAnalysisById.summary?.totalBookings}
+                  </li>
+                  <li>
+                    <strong>Tổng doanh thu:</strong>{" "}
+                    {new Intl.NumberFormat("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(tripAnalysisById.summary?.totalRevenue || 0)}
+                  </li>
+                  <li>
+                    <strong>Giá trị đặt trung bình:</strong>{" "}
+                    {new Intl.NumberFormat("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(
+                      tripAnalysisById.summary?.averageBookingValue || 0
+                    )}
+                  </li>
+                  <li>
+                    <strong>Tỉ lệ hủy:</strong>{" "}
+                    {tripAnalysisById.summary?.cancellationRate}%
+                  </li>
+                </ul>
+              </div>
+
+              {/* Xu hướng theo tháng */}
+              <div className="subsection">
+                <h3>📅 Xu hướng theo tháng</h3>
+                {tripAnalysisById.monthlyTrend?.length ? (
+                  <div className="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Ngày</th>
+                          <th>Lượt đặt</th>
+                          <th>Doanh thu</th>
+                          <th>Giá trị trung bình</th>
+                          <th>Tỉ lệ hủy</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {tripAnalysisById.monthlyTrend.map((trend, idx) => (
+                          <tr key={idx}>
+                            <td>
+                              {format(new Date(trend.month), "dd/MM/yyyy")}
+                            </td>
+                            <td>{trend.bookingCount}</td>
+                            <td>
+                              {new Intl.NumberFormat("vi-VN", {
+                                style: "currency",
+                                currency: "VND",
+                              }).format(trend.revenue || 0)}
+                            </td>
+                            <td>
+                              {new Intl.NumberFormat("vi-VN", {
+                                style: "currency",
+                                currency: "VND",
+                              }).format(trend.averageBookingValue || 0)}
+                            </td>
+                            <td>{trend.cancellationRate}%</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <p>Không có dữ liệu xu hướng.</p>
+                )}
+              </div>
+            </div>
           ) : (
             <p className="no-data">
               Không tìm thấy dữ liệu đặt chỗ cho chuyến đi này trong 3 tháng
@@ -351,21 +454,49 @@ function DashboardAdmin() {
           {customPeriod ? (
             <div>
               <h3>
-                Khoảng Thời Gian: {customPeriod.period?.startDate} đến{" "}
-                {customPeriod.period?.endDate}
+                Khoảng Thời Gian:{" "}
+                {customPeriod.period?.startDate
+                  ? format(
+                      new Date(customPeriod.period.startDate),
+                      "dd/MM/yyyy"
+                    )
+                  : ""}{" "}
+                đến{" "}
+                {customPeriod.period?.endDate
+                  ? format(new Date(customPeriod.period.endDate), "dd/MM/yyyy")
+                  : ""}
               </h3>
               {customPeriod.summary && (
                 <div className="stats-grid">
-                  {Object.entries(customPeriod.summary).map(([key, value]) => (
-                    <div key={key} className="stat-card">
-                      <span className="stat-label">
-                        {key.replace(/([A-Z])/g, " $1").trim()}
-                      </span>
-                      <span className="stat-value">{value}</span>
-                    </div>
-                  ))}
+                  {Object.entries(customPeriod.summary).map(([key, value]) => {
+                    const vietnameseLabels = {
+                      totalBookings: "Tổng lượt đặt",
+                      totalRevenue: "Tổng doanh thu",
+                      averageBookingValue: "Giá trị đặt trung bình",
+                      uniqueTrips: "Số chuyến đi duy nhất",
+                    };
+
+                    // Format tiền cho các field liên quan doanh thu
+                    const formattedValue =
+                      key === "totalRevenue" || key === "averageBookingValue"
+                        ? new Intl.NumberFormat("vi-VN", {
+                            style: "currency",
+                            currency: "VND",
+                          }).format(value || 0)
+                        : value;
+
+                    return (
+                      <div key={key} className="stat-card">
+                        <span className="stat-label">
+                          {vietnameseLabels[key] || key}
+                        </span>
+                        <span className="stat-value">{formattedValue}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
+
               <h3>Xu Hướng Hàng Ngày</h3>
               {customPeriod.dailyTrend?.length ? (
                 <div className="table-wrapper">
