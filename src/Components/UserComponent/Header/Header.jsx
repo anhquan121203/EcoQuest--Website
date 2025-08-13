@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import logo from "../../../assets/images/logo-eco.png";
+import logo from "../../../Assets/images/logo-eco.png";
 import LoginModal from "../../../Pages/LoginPages/LoginPage";
 import useAuth from "../../../Hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
