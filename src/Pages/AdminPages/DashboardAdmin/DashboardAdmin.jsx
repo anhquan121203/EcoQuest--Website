@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import useAdminDashboard from "../../../hooks/useAdminDashboard";
+import useAdminDashboard from "../../../Hooks/useAdminDashboard";
 import "./DashboardAdmin.css";
 import { format } from "date-fns";
 
