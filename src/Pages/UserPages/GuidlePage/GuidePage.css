@@ -1,0 +1,125 @@
+.guide-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.guide-title {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.guide-note {
+  background: #f8f9fa;
+  padding: 10px;
+  border-left: 5px solid #3498db;
+  margin-bottom: 20px;
+}
+
+.guide-step {
+  margin-bottom: 30px;
+}
+
+.guide-step h2 {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.expo-go-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.expo-go-card {
+  display: block;
+  max-width: 200px; /* Giảm kích thước để không quá to */
+  margin: 0 auto 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.expo-go-description {
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.store-icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.store-badge {
+  height: 50px; /* Đồng bộ chiều cao */
+  width: auto; /* Giữ tỷ lệ gốc */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.store-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Làm cho badge App Store và Google Play bằng nhau bằng cách điều chỉnh width nếu cần */
+.app-store {
+  width: 150px; /* Điều chỉnh width để bằng nhau, dựa trên tỷ lệ thực tế của badge */
+}
+
+.google-play {
+  width: 170px; /* Điều chỉnh width để bằng nhau, Google Play badge thường rộng hơn một chút */
+  height: 72px; /* Đồng bộ chiều cao */
+  border-radius: 10px; /* Giữ bo góc */
+  margin-top: -10px;
+}
+
+.qr-code {
+  display: block;
+  margin: 15px auto;
+  border: 5px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .guide-title {
+    font-size: 1.5rem;
+  }
+
+  .guide-step h2 {
+    font-size: 1rem;
+  }
+
+  .expo-go-card {
+    max-width: 150px; /* Giảm thêm trên mobile */
+  }
+
+  .expo-go-description {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .store-badge {
+    height: 45px;
+  }
+
+  .app-store,
+  .google-play {
+    width: 130px; /* Điều chỉnh width trên mobile */
+  }
+
+  .qr-code {
+    width: 150px;
+    height: 150px;
+  }
+
+  .store-icons {
+    flex-direction: column; /* Xếp dọc trên mobile nhỏ để tránh chồng chéo */
+    align-items: center;
+  }
+}

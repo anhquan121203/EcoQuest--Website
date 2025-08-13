@@ -14,13 +14,6 @@ function Footer() {
             Không chỉ du lịch, hãy trải nghiệm du lịch theo phong cách riêng của
             bạn.
           </p>
-          <address style={{ fontStyle: "normal", marginTop: 12 }}>
-            123 Đường Du Lịch, Hà Nội, Việt Nam
-            <br />
-            +84 234 567 890
-            <br />
-            support@ecoquest.com
-          </address>
         </div>
         <div className="footer-section">
           <h4>Điểm đến nổi bật</h4>
@@ -54,22 +47,43 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="material-icons">facebook</span>
+              <span className="material-icons-outlined social-icon">
+                facebook
+              </span>
+              Facebook
             </a>
-            <a href="#" aria-label="Twitter" role="listitem">
-              <span className="material-icons">twitter</span>
+
+            {/* <a href="#" aria-label="Twitter" role="listitem">
+              <span className="material-icons social-icon">twitter</span>
+              Twitter
             </a>
             <a href="#" aria-label="Instagram" role="listitem">
-              <span className="material-icons">instagram</span>
+              <span className="material-icons social-icon">instagram</span>
+              Instagram
             </a>
             <a href="#" aria-label="YouTube" role="listitem">
-              <span className="material-icons">youtube_searched_for</span>
+              <span className="material-icons social-icon">youtube</span>
+              YouTube
+            </a> */}
+          </div>
+          <div className="footer-contact">
+            <div className="contact-item">
+              <span className="material-icons-outlined social-icon">location_on</span>
+              123 Đường Du Lịch, Hà Nội, Việt Nam
+            </div>
+            <a href="tel:+84234567890" className="contact-item" aria-label="Hotline">
+              <span className="material-icons-outlined social-icon">phone</span>
+              +84 234 567 890
+            </a>
+            <a href="mailto:support@ecoquest.com" className="contact-item" aria-label="Email">
+              <span className="material-icons-outlined social-icon">email</span>
+              support@ecoquest.com
             </a>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
-        © 2024 EcoQuest. Đã đăng ký bản quyền.
+        © 2025 EcoQuest. Đã đăng ký bản quyền.
       </div>
     </footer>
   );

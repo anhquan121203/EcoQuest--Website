@@ -115,7 +115,7 @@ const LoginModal = ({ show, onClose }) => {
             <div className="error-message">{formik.errors.password}</div>
           ) : null}
 
-          <div className="forgot">Forgot password?</div>
+          <div className="forgot">Quên tài khoản?</div>
 
           <button
             type="submit"
@@ -127,7 +127,7 @@ const LoginModal = ({ show, onClose }) => {
         </form>
 
         <div className="footer-text">
-          Don’t have an account? <span className="register">Register now</span>
+          Chưa có tài khoản? <span className="register">Đăng ký ngay</span>
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
 /* Footer */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 footer {
     background-color: #1f2937;
     color: #cbd5e1;
@@ -25,12 +28,15 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 105px;
+    margin-top: 55px;
+    height: 40px;
   }
   .footer-logo .material-icons {
     font-size: 32px;
   }
-  .footer-links a {
+  .footer-links a,
+  .footer-links p {
     display: block;
     margin-bottom: 12px;
     color: #94a3b8;
@@ -50,25 +56,46 @@ footer {
   }
   .footer-social {
     display: flex;
-    gap: 12px;
+    flex-direction: column; 
+    gap: 12px; 
+    align-items: flex-start; 
     margin-top: 20px;
   }
   .footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #94a3b8;
-    font-size: 20px;
     transition: color 0.3s ease;
+    text-decoration: none;
   }
   .footer-social a:hover,
   .footer-social a:focus {
     color: #14b8a6;
     outline: none;
   }
-  .footer-social {
-  display: flex;
-  flex-direction: column; 
-  gap: 12px; 
-  align-items: flex-start; 
-}
+  .social-icon {
+    font-size: 20px;
+  }
+  .footer-contact {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .contact-item:hover,
+  .contact-item:focus {
+    color: #14b8a6;
+    outline: none;
+  }
   
   /* Scrollbar for popular activities grid horizontally on mobile */
   @media (max-width: 639px) {
@@ -223,4 +250,3 @@ footer {
       max-width: 1440px;
     }
   }
-  

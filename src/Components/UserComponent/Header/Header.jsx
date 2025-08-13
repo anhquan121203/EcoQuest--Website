@@ -35,33 +35,28 @@ function Header() {
         </div>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#" tabIndex={0}>
+          <a href="/" tabIndex={0}>
             Trang chủ
           </a>
-          <a href="#" tabIndex={0}>
+          <a href="/" tabIndex={0}>
             Tour
           </a>
-          <a href="#" tabIndex={0}>
+          <a href="/" tabIndex={0}>
             Điểm đến
           </a>
-          <a href="#" tabIndex={0}>
+          <a href="/" tabIndex={0}>
             Ưu đãi
           </a>
-          <a href="#" tabIndex={0}>
+          <a href="/" tabIndex={0}>
             Liên hệ
+          </a>
+          <a href="guidle-page" tabIndex={0}>
+            Hướng dẫn
           </a>
         </nav>
 
         {/* button login */}
         <div className="header-actions">
-          <button
-            className="btn-outline"
-            type="button"
-            aria-label="Đổi ngôn ngữ"
-          >
-            Đăng ký
-          </button>
-
           {isLoggedIn ? (
             <div
               className="user-profile-wrapper"
@@ -117,6 +112,13 @@ function Header() {
             </div>
           ) : (
             <>
+              <button
+                className="btn-outline"
+                type="button"
+                aria-label="Đổi ngôn ngữ"
+              >
+                Đăng ký
+              </button>
               <button
                 className="btn-primary"
                 onClick={() => setShowModal(true)}

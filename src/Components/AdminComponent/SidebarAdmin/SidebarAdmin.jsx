@@ -35,7 +35,7 @@ function SidebarAdmin() {
               </Link>
 
               {/* Quản lý người dùng */}
-              <div
+              {/* <div
                 className={`nav-item dropdown-service ${
                   accountDropdownOpen ? "open" : ""
                 }`}
@@ -50,7 +50,7 @@ function SidebarAdmin() {
                     accountDropdownOpen ? "rotate" : ""
                   }`}
                 />
-              </div>
+              </div> */}
 
               {accountDropdownOpen && (
                 <div className="submenu">
@@ -67,7 +67,7 @@ function SidebarAdmin() {
               )}
 
               {/*Quản lý thiết bị */}
-              <div
+              {/* <div
                 className={`nav-item dropdown-service ${
                   serviceDropdownOpen ? "open" : ""
                 }`}
@@ -82,7 +82,7 @@ function SidebarAdmin() {
                     serviceDropdownOpen ? "rotate" : ""
                   }`}
                 />
-              </div>
+              </div> */}
 
               {serviceDropdownOpen && (
                 <div className="submenu">

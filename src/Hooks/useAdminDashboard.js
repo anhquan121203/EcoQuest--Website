@@ -70,9 +70,9 @@ const useAdminDashboard = () => {
   const getCustomPeriod = async (params) => {
     try {
       await dispatch(fetchCustomPeriod(params)).unwrap();
-      toast.success("Custom period data loaded successfully");
+      // toast.success("Custom period data loaded successfully");
     } catch (err) {
-      toast.error(err?.message || "Failed to load custom period data");
+      // toast.error(err?.message || "Failed to load custom period data");
     }
   };
 

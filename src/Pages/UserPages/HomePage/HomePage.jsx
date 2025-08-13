@@ -1,6 +1,10 @@
 import React from "react";
 import "./HomePage.css";
-import { MdOutlineLocalDining, MdOutlineSecurity, MdTravelExplore } from "react-icons/md";
+import {
+  MdOutlineLocalDining,
+  MdOutlineSecurity,
+  MdTravelExplore,
+} from "react-icons/md";
 import { FaMap } from "react-icons/fa";
 
 function HomePage() {
@@ -78,9 +82,7 @@ function HomePage() {
           <div className="feature-item" tabIndex={0}>
             <MdOutlineSecurity className="feature-icon" />
             <h3 className="feature-title">Du lịch an tâm</h3>
-            <p className="feature-desc">
-              Đặt chỗ an toàn, hỗ trợ tận tâm 24/7
-            </p>
+            <p className="feature-desc">Đặt chỗ an toàn, hỗ trợ tận tâm 24/7</p>
           </div>
         </section>
 
@@ -96,53 +98,53 @@ function HomePage() {
             href="#"
             className="destination-card"
             tabIndex={0}
-            aria-label="Xem chi tiết điểm đến Bali"
+            aria-label="Xem chi tiết điểm đến Chùa Một Cột"
           >
             <img
-              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b12fa3e9-1dad-4860-a401-31203be13565.png"
-              alt="Ngôi đền tuyệt đẹp với núi ở Bali"
+              src="https://media.gody.vn//images/ha-noi/chua-mot-cot/12-2016/20161201033328-chua-mot-cot-gody(11).jpg"
+              alt="Ngôi đền tuyệt đẹp với núi ở Chùa Một Cột"
               className="destination-img"
             />
-            <span className="destination-name">Bali</span>
+            <span className="destination-name">Chùa Một Cột</span>
           </a>
           <a
             href="#"
             className="destination-card"
             tabIndex={0}
-            aria-label="Xem chi tiết điểm đến Bangkok"
+            aria-label="Xem chi tiết điểm đến Chùa Bửu Long"
           >
             <img
-              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b4efde37-23a0-4c61-87ee-b757f918595c.png"
+              src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/09/chua-buu-long.jpg"
               alt="Ngôi đền nổi tiếng tại Bangkok"
               className="destination-img"
             />
-            <span className="destination-name">Bangkok</span>
+            <span className="destination-name">Chùa Bửu Long</span>
           </a>
           <a
             href="#"
             className="destination-card"
             tabIndex={0}
-            aria-label="Xem chi tiết điểm đến Cancun"
+            aria-label="Xem chi tiết điểm đến Đảo Khỉ"
           >
             <img
-              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8ae29030-40aa-4014-97f4-6416d2d510e5.png"
+              src="https://bizweb.dktcdn.net/thumb/grande/100/410/190/products/tour-dao-khi-suoi-hoa-lan-12.jpg?v=1668660744563"
               alt="Bãi biển nhiệt đới và hàng dừa ở Cancun"
               className="destination-img"
             />
-            <span className="destination-name">Cancun</span>
+            <span className="destination-name">Đảo Khỉ</span>
           </a>
           <a
             href="#"
             className="destination-card"
             tabIndex={0}
-            aria-label="Xem chi tiết điểm đến Nha Trang"
+            aria-label="Xem chi tiết điểm đến Biển Nha Trang"
           >
             <img
               src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cf762bd5-6564-464e-8c6c-217f8e09f440.png"
               alt="Thành phố và vịnh biển Nha Trang"
               className="destination-img"
             />
-            <span className="destination-name">Nha Trang</span>
+            <span className="destination-name">Biển Nha Trang</span>
           </a>
         </section>
 
@@ -155,10 +157,11 @@ function HomePage() {
             aria-label="Hành trình Nam Bali với thiên nhiên tuyệt đẹp"
           >
             <h3 className="trip-idea-title">
-              Nam Bali (Kuta, Canggu, Uluwatu, Jimbaran)
+              Bờ Biển Đẹp (Nha Trang, Mũi Né, Mỹ Khê, Hồ Cốc)
             </h3>
             <p className="trip-idea-subtitle">
-              Thiên đường nắng vàng với những bãi biển tuyệt đẹp và văn hóa sôi động.
+              Thiên đường nắng vàng với những bãi biển tuyệt đẹp và văn hóa sôi
+              động.
             </p>
             <button className="trip-idea-btn">Xem tất cả hoạt động</button>
           </article>
@@ -169,7 +172,8 @@ function HomePage() {
           >
             <h3 className="trip-idea-title">Ngoài thành phố</h3>
             <p className="trip-idea-subtitle">
-              Tránh xa đám đông, hòa mình vào thiên nhiên, lịch sử và sự yên bình.
+              Tránh xa đám đông, hòa mình vào thiên nhiên, lịch sử và sự yên
+              bình.
             </p>
             <button className="trip-idea-btn">Xem tất cả hoạt động</button>
           </article>
@@ -220,7 +224,8 @@ function HomePage() {
               <div className="activity-content">
                 <h3 className="activity-title">Tour tham quan đền</h3>
                 <p className="activity-desc">
-                  Khám phá những điểm đến bí ẩn giữa lòng di sản văn hóa Bangkok.
+                  Khám phá những điểm đến bí ẩn giữa lòng di sản văn hóa
+                  Bangkok.
                 </p>
                 <div className="activity-tags">
                   <span className="tag">Đi bộ</span>
@@ -244,7 +249,8 @@ function HomePage() {
               <div className="activity-content">
                 <h3 className="activity-title">Chuyến đi thuyền</h3>
                 <p className="activity-desc">
-                  Thư giãn trên chuyến du ngoạn dọc bờ biển tuyệt đẹp của Cancun.
+                  Thư giãn trên chuyến du ngoạn dọc bờ biển tuyệt đẹp của
+                  Cancun.
                 </p>
                 <div className="activity-tags">
                   <span className="tag">Thuyền</span>
@@ -269,7 +275,8 @@ function HomePage() {
               <div className="activity-content">
                 <h3 className="activity-title">Tour ẩm thực</h3>
                 <p className="activity-desc">
-                  Thưởng thức và khám phá ẩm thực địa phương cùng chợ đêm sôi động.
+                  Thưởng thức và khám phá ẩm thực địa phương cùng chợ đêm sôi
+                  động.
                 </p>
                 <div className="activity-tags">
                   <span className="tag">Ẩm thực</span>

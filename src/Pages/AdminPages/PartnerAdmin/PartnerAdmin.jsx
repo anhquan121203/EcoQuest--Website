@@ -53,13 +53,13 @@ function PartnerAdmin() {
       <table className="partner-table">
         <thead>
           <tr>
-            <th>Company Name</th>
-            <th>Contact Name</th>
-            <th>Phone</th>
-            <th>Description</th>
-            <th>Verified</th>
-            <th>Created At</th>
-            <th>Actions</th>
+            <th>Tên công ty</th>
+            <th>Tên liên hệ</th>
+            {/* <th>Điện thoại</th> */}
+            <th>Mô tả</th>
+            <th>Xác thực</th>
+            <th>Ngày tạo</th>
+            <th>Hành động</th>
           </tr>
         </thead>
         <tbody>
@@ -67,9 +67,9 @@ function PartnerAdmin() {
             <tr key={partner?.partnerId}>
               <td>{partner?.companyName}</td>
               <td>{partner?.contactName}</td>
-              <td>{partner?.phone}</td>
+              {/* <td>{partner?.phone}</td> */}
               <td>{partner?.description}</td>
-              <td>{partner?.verified ? "Yes" : "No"}</td>
+              <td>{partner?.verified ? "Đã xác thực" : "Chưa xác thực"}</td>
               <td>{partner?.createdAt}</td>
               <td>
                 <button onClick={() => openEditModal(partner)}>Cập nhập</button>
