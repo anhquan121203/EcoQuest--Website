@@ -37,8 +37,8 @@ function DashboardAdmin() {
     getComplete();
     getTripAnalysisById("62E1A19F-83DA-4803-92B3-A387BEF14BF0");
     getCustomPeriod({
-      startDate: "2025-08-12T00:00:00",
-      endDate: "2025-08-15T00:00:00",
+      startDate: "2025-07-1T00:00:00",
+      endDate: "2025-09-1T00:00:00",
     });
   }, []);
 
@@ -151,7 +151,7 @@ function DashboardAdmin() {
 
         {/* 4. Declining Trips */}
         <section className="card trips-card">
-          <h2>4. Chuyến Đi Giảm SúT</h2>
+          <h2>4. Chuyến Đi Giảm Sút</h2>
           {decliningTrips?.length ? (
             <ul className="trips-list">
               {decliningTrips.map((trip, idx) => (
@@ -268,24 +268,34 @@ function DashboardAdmin() {
                             <td>{item.predictedNextMonthBookings}</td>
                             <td>
                               {item.historicalData?.length ? (
-                                <ul className="historical-list">
+                                <div className="historical-list">
                                   {item.historicalData.map((hist, hIdx) => (
-                                    <li key={hIdx}>
-                                      {hist.month
-                                        ? format(
-                                            new Date(hist.month),
-                                            "dd/MM/yyyy"
-                                          )
-                                        : "N/A"}
-                                      : Đặt chỗ - {hist.bookingCount}, Doanh thu
-                                      -{" "}
-                                      {new Intl.NumberFormat("vi-VN", {
-                                        style: "currency",
-                                        currency: "VND",
-                                      }).format(hist.revenue)}
-                                    </li>
+                                    <div key={hIdx} className="historical-item">
+                                      <div className="hist-date">
+                                        📅 Ngày:{" "}
+                                        {hist.month
+                                          ? format(
+                                              new Date(hist.month),
+                                              "dd/MM/yyyy"
+                                            )
+                                          : "N/A"}
+                                      </div>
+                                      <div className="hist-booking">
+                                        🧾 Đặt chỗ:{" "}
+                                        <strong>{hist.bookingCount}</strong>
+                                      </div>
+                                      <div className="hist-revenue">
+                                        💰 Doanh thu:{" "}
+                                        <strong>
+                                          {new Intl.NumberFormat("vi-VN", {
+                                            style: "currency",
+                                            currency: "VND",
+                                          }).format(hist.revenue)}
+                                        </strong>
+                                      </div>
+                                    </div>
                                   ))}
-                                </ul>
+                                </div>
                               ) : (
                                 <p>Không có dữ liệu lịch sử.</p>
                               )}
@@ -322,8 +332,10 @@ function DashboardAdmin() {
                         </ul>
                         <p>
                           <strong>Tăng Doanh Thu Tiềm Năng:</strong>{" "}
-                          {opt.potentialRevenueIncrease}
+                          {opt.potentialRevenueIncrease.toLocaleString("vi-VN")}{" "}
+                          ₫
                         </p>
+
                         <p>
                           <strong>Ưu Tiên:</strong> {opt.priority}
                         </p>
@@ -466,6 +478,8 @@ function DashboardAdmin() {
                   ? format(new Date(customPeriod.period.endDate), "dd/MM/yyyy")
                   : ""}
               </h3>
+
+              {/* Summary */}
               {customPeriod.summary && (
                 <div className="stats-grid">
                   {Object.entries(customPeriod.summary).map(([key, value]) => {
@@ -476,7 +490,6 @@ function DashboardAdmin() {
                       uniqueTrips: "Số chuyến đi duy nhất",
                     };
 
-                    // Format tiền cho các field liên quan doanh thu
                     const formattedValue =
                       key === "totalRevenue" || key === "averageBookingValue"
                         ? new Intl.NumberFormat("vi-VN", {
@@ -497,6 +510,7 @@ function DashboardAdmin() {
                 </div>
               )}
 
+              {/* Daily Trend */}
               <h3>Xu Hướng Hàng Ngày</h3>
               {customPeriod.dailyTrend?.length ? (
                 <div className="table-wrapper">
@@ -504,16 +518,23 @@ function DashboardAdmin() {
                     <thead>
                       <tr>
                         <th>Ngày</th>
-                        <th>Đặt Chỗ</th>
-                        <th>Doanh Thu</th>
+                        <th>Lượt đặt</th>
+                        <th>Doanh thu</th>
+                        <th>Số chuyến duy nhất</th>
                       </tr>
                     </thead>
                     <tbody>
                       {customPeriod.dailyTrend.map((trend, idx) => (
                         <tr key={idx}>
-                          <td>{trend.date}</td>
-                          <td>{trend.bookings}</td>
-                          <td>{trend.revenue}</td>
+                          <td>{format(new Date(trend.date), "dd/MM/yyyy")}</td>
+                          <td>{trend.bookingCount}</td>
+                          <td>
+                            {new Intl.NumberFormat("vi-VN", {
+                              style: "currency",
+                              currency: "VND",
+                            }).format(trend.revenue || 0)}
+                          </td>
+                          <td>{trend.uniqueTrips}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -522,19 +543,37 @@ function DashboardAdmin() {
               ) : (
                 <p className="no-data">Không có dữ liệu xu hướng hàng ngày.</p>
               )}
+
+              {/* Top Destinations */}
               <h3>Điểm Đến Hàng Đầu</h3>
-              {customPeriod.topDestinations?.length ? (
+              <div className="card">
                 <ul className="trips-list">
-                  {customPeriod.topDestinations.map((dest, idx) => (
-                    <li key={idx}>
-                      {dest.name || dest.destination} - Đặt chỗ: {dest.bookings}
-                      , Doanh thu: {dest.revenue}
-                    </li>
-                  ))}
+                  {customPeriod.topDestinations &&
+                  customPeriod.topDestinations.length > 0 ? (
+                    customPeriod.topDestinations.map((item, index) => (
+                      <li
+                        key={index}
+                        className="trip-item hot"
+                        // {`trip-item ${
+                        //   index === 0
+                        //     ? "hot"
+                        //     : index === customPeriod.topDestinations.length - 1
+                        //     ? "declining"
+                        //     : ""
+                        // }`}
+                      >
+                        <strong>{item.province || "Không xác định"}</strong>
+                        <div>📅 Đặt chỗ: {item.bookingCount}</div>
+                        <div>
+                          💰 Doanh thu: {item.revenue.toLocaleString("vi-VN")} ₫
+                        </div>
+                      </li>
+                    ))
+                  ) : (
+                    <p className="no-data">Không có dữ liệu</p>
+                  )}
                 </ul>
-              ) : (
-                <p className="no-data">Không có điểm đến hàng đầu.</p>
-              )}
+              </div>
             </div>
           ) : (
             <p className="no-data">

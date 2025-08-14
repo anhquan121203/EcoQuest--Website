@@ -253,6 +253,24 @@ td {
   font-size: 0.85rem;
 }
 
+.historical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.historical-item {
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.historical-item > div {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
 /* Responsive Media Queries */
 @media (max-width: 768px) {
   .dashboard-grid {
