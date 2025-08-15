@@ -10,7 +10,7 @@ import HomePage from "./Pages/UserPages/HomePage/HomePage";
 import AdminLayout from "./Layouts/AdminLayout";
 import DashboardAdmin from "./Pages/AdminPages/DashboardAdmin/DashboardAdmin";
 import PartnerAdmin from "./Pages/AdminPages/PartnerAdmin/PartnerAdmin";
-import GuidePage from "./Pages/UserPages/GuidlePage/GuidePage";
+import GuidePage from "./Pages/UserPages/GuidePage/GuidePage";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="guidle-page" index element={<GuidePage />} />
+          <Route path="guide-page" index element={<GuidePage />} />
         </Route>
 
         {/* ADMIN ROUTES*********************************** */}
