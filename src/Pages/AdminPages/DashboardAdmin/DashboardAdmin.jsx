@@ -79,12 +79,26 @@ function DashboardAdmin() {
                   averageBookingValue: "Giá trị đặt trung bình",
                 };
 
+                // Các trường cần format tiền
+                const moneyFields = [
+                  "averageBookingValue",
+                  "totalRevenueThisMonth",
+                  "totalRevenuePreviousMonth",
+                ];
+
+                const formattedValue = moneyFields.includes(key)
+                  ? new Intl.NumberFormat("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(value || 0)
+                  : value;
+
                 return (
                   <div key={key} className="stat-card">
                     <span className="stat-label">
                       {vietnameseLabels[key] || key}
                     </span>
-                    <span className="stat-value">{value}</span>
+                    <span className="stat-value">{formattedValue}</span>
                   </div>
                 );
               })}

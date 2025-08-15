@@ -123,6 +123,11 @@ h3 {
   border-radius: 8px;
   text-align: center;
   transition: background 0.3s;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .stat-card:hover {
@@ -134,12 +139,16 @@ h3 {
   font-size: 0.85rem;
   color: #7f8c8d;
   text-transform: capitalize;
+  /* word-wrap: break-word;  */
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Giữ cố định thay vì co giãn theo vw */
   font-weight: 600;
   color: #2980b9;
+  /* word-break: break-word;  */
+  max-width: 100%; /* Không vượt quá ô */
+  /* white-space: normal;  */
 }
 
 /* Region Forecast */
