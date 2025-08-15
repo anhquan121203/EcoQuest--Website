@@ -77,7 +77,7 @@ function TopbarAdmin() {
                   <span>
                     <CiLogout />
                   </span>{" "}
-                  Sign out
+                  Đăng xuất
                 </li>
               </ul>
             </div>
