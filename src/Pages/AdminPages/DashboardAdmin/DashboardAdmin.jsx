@@ -476,7 +476,7 @@ function DashboardAdmin() {
 
         {/* 9. Custom Period */}
         <section className="card custom-card">
-          <h2>9. Khoảng Thời Gian Tùy Chỉnh</h2>
+          <h2>9. Dữ liệu theo quý</h2>
           {customPeriod ? (
             <div>
               <h3>
