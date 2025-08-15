@@ -12,14 +12,13 @@ import DashboardAdmin from "./Pages/AdminPages/DashboardAdmin/DashboardAdmin";
 import PartnerAdmin from "./Pages/AdminPages/PartnerAdmin/PartnerAdmin";
 import GuidePage from "./Pages/UserPages/GuidePage/GuidePage";
 
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="guide-page" index element={<GuidePage />} />
+          <Route path="guide-page" element={<GuidePage />} />
         </Route>
 
         {/* ADMIN ROUTES*********************************** */}

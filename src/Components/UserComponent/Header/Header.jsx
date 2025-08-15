@@ -50,9 +50,9 @@ function Header() {
           <a href="/" tabIndex={0}>
             Liên hệ
           </a>
-          <a href="guide-page" tabIndex={0}>
+          <Link to="/guide-page" tabIndex={0}>
             Hướng dẫn
-          </a>
+          </Link>
         </nav>
 
         {/* button login */}
