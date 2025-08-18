@@ -1,5 +1,6 @@
 import React from "react";
 import "./GuidePage.css";
+import qrEcoquest from "../../../Assets/images/EQ-QR-EXPO.jpg";
 
 function GuidePage() {
   return (
@@ -46,11 +47,7 @@ function GuidePage() {
       {/* Bước 2 */}
       <div className="guide-step">
         <h2>Bước 2: Vào ứng dụng Expo Go và quét mã QR sau</h2>
-        <img
-          className="qr-code"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ECOQUEST"
-          alt="QR Code"
-        />
+        <img className="qr-code" src={qrEcoquest} alt="QR Code" />
       </div>
 
       {/* Bước 3 */}
